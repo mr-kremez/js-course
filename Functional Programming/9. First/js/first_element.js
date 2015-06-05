@@ -1,5 +1,5 @@
 (function(){
-  'use strict'
+  'use strict';
 
   function first(array/*, condition*/) {
     if(arguments.length >= 2) {
@@ -7,8 +7,8 @@
     } else {
       return array[0];
     }
-    for(var i = 0; i < array.length; i++) {
-      if(condition.call(this, array[i]) == true) {
+    for(var i = 0, len = array.length; i < len; i++) {
+      if(condition(array[i]) === true) {
         return array[i];
       }
     }
@@ -16,17 +16,11 @@
   }
 
   function conditionOne(value) {
-    if(value % 2 == 0) {
-      return true;
-    }
-    return false;
+    return (value % 2 === 0);
   }
 
   function conditionTwo(value) {
-    if(value > 100) {
-      return true;
-    }
-    return false;
+    return (value > 100);
   }
 
   var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];

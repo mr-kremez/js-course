@@ -1,30 +1,30 @@
 (function() {
-	'use strict'
-	function curry(func) {
-		var n = func.length;
-		
-		function getCurriedFunc(prevArgs) {
-			return function(singleArg) {
-				var args = prevArgs.concat(singleArg);
-				if(args.length < n) {
-					return getCurriedFunc(args);
-				} else {
-					return func.apply(this, args);
-				}
-			};
-		}
+  'use strict';
+  function curry(func) {
+    var n = func.length;
 
-		return getCurriedFunc([]);
-	}
+    function getCurriedFunc(prevArgs) {
+      return function(singleArg) {
+        var args = prevArgs.concat(singleArg);
+        if(args.length < n) {
+          return getCurriedFunc(args);
+        } else {
+          return func.apply(this, args);
+        }
+      };
+    }
 
-	function foo(arg1, arg2, arg3) {
-		return "" + arg1 + arg2 + arg3;
-	}
+    return getCurriedFunc([]);
+  }
 
-	console.log( foo(1, 2, 3) );
-	console.log( foo('a', 'b', 'c') );
+  function foo(arg1, arg2, arg3) {
+    return "" + arg1 + arg2 + arg3;
+  }
 
-	var curriedFoo = curry(foo);
-	console.log( curriedFoo(1)(2)(3) );
-	console.log( curriedFoo('a')('b')('c') );
+  console.log( foo(1, 2, 3) );
+  console.log( foo('a', 'b', 'c') );
+
+  var curriedFoo = curry(foo);
+  console.log( curriedFoo(1)(2)(3) );
+  console.log( curriedFoo('a')('b')('c') );
 })();

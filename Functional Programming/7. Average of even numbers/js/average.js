@@ -1,5 +1,5 @@
 (function() {
-  'use strcit'
+  'use strcit';
 
   function averageOfEvenNumbers(array) {
     var evenNumbers = filterModule.filter(array, filterModule.isEven);

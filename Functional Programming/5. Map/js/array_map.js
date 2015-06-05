@@ -1,11 +1,11 @@
 // ES5 built-in alternative is Array.prototype.map()
 (function(){
-  'use stict'
+  'use stict';
 
   function map(array, callback) {
-    var resultArr = []
-    for(var i = 0; i < array.length; i++) {
-      resultArr[i] = callback.call(this, array[i], i, array);
+    var resultArr = [];
+    for(var i = 0, len = array.length; i < len; i++) {
+      resultArr.push(callback(array[i], i, array));
     }
     return resultArr;
   }

@@ -1,5 +1,5 @@
 (function(){
-  'use strict'
+  'use strict';
   function sumOfRandomNumbers(quantity, upperBound){
     var randomNumbers = [];
     for(var i = 0; i < quantity; i++) {
