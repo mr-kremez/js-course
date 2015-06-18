@@ -1,8 +1,10 @@
 define(function(require) {
   'use strict';
   var Logger = require('./logger');
-  var newLogger = new Logger('debug');
-  newLogger.displayLoggerInfo();
-  newLogger.debug('Some debug information!');
-  newLogger.info('Some info information!');
+  var myLogger = new Logger('debug', 'alert');
+  myLogger.displayLoggerInfo();
+  myLogger.debug('Some debug information!');
+  myLogger.info('Some info information!');
+  myLogger.defineNewLogLevel({ name: 'custom', value: 5 });
+  myLogger.custom('Some custom information!');
 });
