@@ -1,19 +1,25 @@
 define(function(require) {
   'use strict';
-  var utils = require('./utils');
+  var utils = require('../utils');
   var logLevels = [];
   var adapters = {
     console: function() {
-      this.adapter = require('./adapters/console');
+      this.adapter = require('../adapters/console');
     },
     alert: function() {
-      this.adapter = require('./adapters/alert');
+      this.adapter = require('../adapters/alert');
+    },
+    current_window: function() {
+      this.adapter = require('../adapters/current_window');
     }
   };
 
   function BasicLogger(initLogLevel, adapter) {
     defineLogLevel({ name: 'debug', value: 0 });
     defineLogLevel({ name: 'info', value: 1 });
+    defineLogLevel({ name: 'warning', value: 2 });
+    defineLogLevel({ name: 'error', value: 3 });
+    defineLogLevel({ name: 'fatal', value: 4 });
     setLogLevel.call(this, initLogLevel);
     if(adapters[adapter])
       adapters[adapter].call(this);

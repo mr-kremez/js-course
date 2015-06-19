@@ -1,7 +1,8 @@
 define(function() {
-	return {
-		sendText: function(text, logName) {
-			console.log(logName.toUpperCase() + ' - ' + text);
-		}
-	};
+  'use strict';
+  return {
+    sendText: function(text, logName) {
+      console.log(logName.toUpperCase() + ' - ' + text);
+    }
+  };
 });
